@@ -1,0 +1,21 @@
+# Virtual environment
+venv/
+ 
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+ 
+# IDE-specific files (VS Code, Visual Studio )
+.vscode/
+.idea/ # Para IntelliJ/PyCharm (ou PyCharm, no caso)
+ 
+# OS-specific files
+.DS_Store # macOS
+Thumbs.db # Windows
+ 
+# Other
+*.log
+*.tmp
+*.bak
+.env # Variáveis de ambiente
