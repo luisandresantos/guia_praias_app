@@ -1,1 +1,4 @@
 # Dependências do projeto
+requests
+pandas
+python-dotenv
