@@ -20,3 +20,5 @@ Thumbs.db # Windows
 *.tmp
 *.bak
 .env # Variáveis de ambiente
+.continue
+.continue/prompts
