@@ -36,6 +36,20 @@ Este ficheiro implementa um módulo (`static_data/weather_glossary.py`) que serv
 
 ## 💡 Sugestões de melhoria
 
-- 📉 **Definição de `WIND_SPEED_CLASSES`:** A lista `WIND_SPEED_CLASSES` parece ser uma estimativa. Se houver uma fonte oficial ou um endpoint na API do IPMA que forneça estas descrições, seria ideal integrá-lo para maior precisão. Caso contrário, documentar a origem destas estimativas é uma boa prática.
-- 🧩 **Separação de Dados Estáticos:** Para uma melhor organização, as `WIND_SPEED_CLASSES` poderiam estar num ficheiro de configuração separado (ex: `config/wind_classes.py` ou `data/wind_classes.json`), especialmente se fossem mais extensas ou viessem de fontes externas.
-- 🧪 **Testes Unitários:** Seria excelente adicionar testes unitários para as funções `get_weather_description` e `get_wind_speed_description`, cobrindo casos com IDs válidos, inválidos, `None`, e IDs que não existem nos dicionários.
+## 💡 Otimizações e Melhorias Futuras
+
+-   **Validação/Integração das Classes de Vento:** A coleção `WIND_SPEED_CLASSES` foi estabelecida com base em estimativas. Para garantir a máxima precisão e conformidade, recomenda-se:
+    *   Validar estes valores com a documentação oficial do IPMA.
+    *   Integrar um endpoint da API, caso venha a existir, que forneça estas descrições diretamente.
+    -   **Ação Recomendada:** Atualizar `WIND_SPEED_CLASSES` com dados validados ou provenientes de um endpoint API.
+
+-   **Modularização de Dados Estáticos:** Dada a natureza destes dados de referência, sugere-se a sua centralização numa estrutura mais organizada:
+    -   Considerar a criação de ficheiros de configuração dedicados (ex: `config/wind_classes.py` ou `data/wind_classes.json`) para dados como `WIND_SPEED_CLASSES`.
+    -   **Ação Recomendada:** Migrar `WIND_SPEED_CLASSES` para um ficheiro de configuração separado para melhor gerir e escalei os dados de referência.
+
+-   **Cobertura de Testes Unitários:** Para assegurar a robustez e corretude das funções de tradução, é essencial implementar testes unitários.
+    -   Testar as funções com IDs válidos, `None`, IDs inválidos para conversão, e IDs que não existem nos dicionários de referência. (Unitest ou Pytest)
+    -   **Ação Recomendada:** Desenvolver testes unitários para `get_weather_description` e `get_wind_speed_description` para cobrir todos os cenários de input e output.
+
+-   **Injeção de Dependência para `IPMAApi`:** Embora a criação da instância `_ipma_api_instance` dentro do módulo seja funcional, a injeção de dependência (passar a instância de `IPMAApi` via argumento no `__init__` ou em outra função de setup) oferece maior flexibilidade e facilita a escrita de testes.
+    -   **Ação Recomendada:** Refatorar para receber a instância de `IPMAApi` como parâmetro em vez de criá-la internamente, seguindo o padrão aplicado no `MainController`. (FEITO)
