@@ -1,4 +1,7 @@
 # Dependências do projeto
+
+# Para fazer requisições HTTP à API externa (IPMA)
 requests
-pandas
-python-dotenv
+
+# Para manipulação de imagens na GUI
+Pillow

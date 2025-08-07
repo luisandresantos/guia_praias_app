@@ -9,6 +9,8 @@ __pycache__/
  
 # IDE-specific files (VS Code, Visual Studio )
 .vscode/
+.continue
+.continue/prompts
 .idea/ # Para IntelliJ/PyCharm (ou PyCharm, no caso)
  
 # OS-specific files
@@ -20,5 +22,7 @@ Thumbs.db # Windows
 *.tmp
 *.bak
 .env # Variáveis de ambiente
-.continue
-.continue/prompts
+dist/
+build/
+*.spec
+logo_praias.png*.Identifier
